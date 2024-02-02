@@ -7,7 +7,19 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors: {
+      generator: {
+        primary: "#10004F",
+        white: {
+          "100": "#FFFFFF",
+          "200": "#F3F3F3",
+        },
+      },
+    },
     extend: {
+      fontFamily: {
+        primary: "NameSmile",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
