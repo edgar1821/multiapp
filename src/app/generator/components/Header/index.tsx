@@ -1,19 +1,20 @@
 import Image from "next/image";
-import { Dropdown } from "flowbite-react";
+import { Select } from "flowbite-react";
 
 function Header() {
   return (
     <header
       className="
-    bg-white
-     mb-3
-    flex
-    justify-center
-    shadow-sm
-    shadow-generator-primary
-    "
+      bg-white
+        mb-3
+        flex
+        w-screen
+        justify-center
+        shadow-sm
+        shadow-generator-primary
+      "
     >
-      <div className="bg-generator-white-100 flex h-14 w-full items-center justify-between p-8 md:w-1/2 md:p-0">
+      <div className="flex h-14 w-full items-center justify-between p-8  md:h-20 md:w-1/2 md:p-0">
         <div>
           <Image
             src="/images/logo.png"
@@ -23,10 +24,13 @@ function Header() {
             alt={"logo"}
           />
         </div>
-        <div>
-          <h1 className="font-primary text-generator-primary">
-            idioma
-          </h1>
+        <div className="border-generator-primary font-primary text-generator-primary">
+          <Select required className="text-xs text-generator-primary">
+            <option selected>es</option>
+            <option>en</option>
+            <option>fr</option>
+            <option>it</option>
+          </Select>
         </div>
       </div>
     </header>
