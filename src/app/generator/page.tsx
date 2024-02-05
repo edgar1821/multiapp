@@ -1,8 +1,12 @@
-import { Tabs, TabItem, Flowbite } from "flowbite-react";
+/* eslint-disable react-hooks/rules-of-hooks */
+"use client";
+import { Tabs, TabItem } from "flowbite-react";
 import type { CustomFlowbiteTheme } from "flowbite-react";
-
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Layout from "./components/Layout";
-
+import QrUrlSchema, { QrUrlType } from "./Schemas/qrUrlSchema";
+import Button from "../generator/components/Button";
 const customTheme: CustomFlowbiteTheme["tabs"] = {
   base: "flex flex-col gap-2",
   tablist: {
@@ -37,13 +41,51 @@ const customTheme: CustomFlowbiteTheme["tabs"] = {
   tabpanel: "py-3",
 };
 
+//{ resolver: zodResolver(QrUrlSchema) }
 function index() {
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<QrUrlType>({ resolver: zodResolver(QrUrlSchema) });
+
+  function save(data: QrUrlType) {
+    console.log(data);
+  }
+  const datawatch = watch();
+  console.log("error", errors);
+  console.log("datawatch", datawatch);
+
   return (
     <Layout>
       <div className="p-4">
         <Tabs theme={customTheme} style="default">
           <TabItem active title="Url">
-            url
+            <form action="" onSubmit={handleSubmit(save)}>
+              <div className="flex flex-col">
+                <input
+                  className={`
+                  h-8 
+                  w-full 
+                  rounded-md
+                  border-2 
+                  border-generator-primary
+                  px-2
+                  pr-2
+                  text-xs
+                  text-generator-primary`}
+                  {...register("url")}
+                />
+                {errors.url && (
+                  <span className="text-red-600">
+                    {errors.url.message}
+                  </span>
+                )}
+              </div>
+
+              <Button type="submit">Generar</Button>
+            </form>
           </TabItem>
           <TabItem title="url">Edgar</TabItem>
           <TabItem title="Whatsapp">Gamarra</TabItem>
