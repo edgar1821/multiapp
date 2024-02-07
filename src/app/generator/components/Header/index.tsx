@@ -5,11 +5,11 @@ function Header() {
   return (
     <header
       className="
-      bg-white
-        mb-3
+      mb-3
         flex
         w-screen
         justify-center
+        bg-white
         shadow-sm
         shadow-generator-primary
       "
@@ -26,7 +26,7 @@ function Header() {
         </div>
         <div className="border-generator-primary font-primary text-generator-primary">
           <Select required className="text-xs text-generator-primary">
-            <option selected>es</option>
+            <option>es</option>
             <option>en</option>
             <option>fr</option>
             <option>it</option>

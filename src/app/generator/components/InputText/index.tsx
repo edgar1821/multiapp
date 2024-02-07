@@ -1,6 +1,5 @@
 import { forwardRef, InputHTMLAttributes, Ref } from "react";
 import { FieldErrors } from "react-hook-form";
-import { QrUrlType } from "../../Schemas/qrUrlSchema";
 // import { FieldError } from "react-hook-form";
 
 export interface InputProps

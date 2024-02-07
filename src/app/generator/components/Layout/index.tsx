@@ -1,8 +1,9 @@
+import { ReactNode } from "react";
 import { ThemeModeScript } from "flowbite-react";
 import Header from "../../components/Header";
 
 interface Props {
-  children: JSX.Element;
+  children: JSX.Element | ReactNode | string;
 }
 
 function index({ children }: Props) {
@@ -34,7 +35,7 @@ function index({ children }: Props) {
             >
               {children}
             </div>
-            <div className="bg-indigo-500 hidden md:flex">add</div>
+            <div className="hidden bg-indigo-500 md:flex">add</div>
           </div>
         </main>
       </body>
