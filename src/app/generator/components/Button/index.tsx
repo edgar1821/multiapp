@@ -21,7 +21,8 @@ function Button({ children, color = "primary", ...rest }: Props) {
       pt-2
       font-primary 
       text-xs
-      text-generator-white-100`}
+      text-generator-white-100
+      disabled:opacity-75`}
     >
       {children}
     </button>

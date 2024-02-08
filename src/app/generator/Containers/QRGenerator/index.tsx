@@ -16,7 +16,7 @@ function QRGenerator() {
 
   useEffect(() => {
     QrCode.update({
-      data: qrState?.url,
+      data: qrState?.text,
     });
   }, [qrState]);
 
@@ -29,12 +29,12 @@ function QRGenerator() {
       extension: fileExt,
     });
   };
-
+  console.log(qrState);
   return (
-    <div className="flex w-1/3 flex-col justify-center">
+    <div className="flex w-1/2 items-center p-3 ">
       <div ref={ref} />
-      <div className=" flex justify-between">
-        <div className="w-1/2">
+      <div className="flex flex-col">
+        <div className="mb-3">
           <select
             onChange={onExtensionChange}
             className={`
@@ -73,3 +73,6 @@ function QRGenerator() {
 //focus:border-cyan-500 focus:ring-cyan-500
 
 export default QRGenerator;
+
+// <a href="wifi://password@ssid"> click to connect wifi </a>
+//<a href="WIFI:S:ssid;T:WPA;P:password;H:false;"> click to connect wifi </a>

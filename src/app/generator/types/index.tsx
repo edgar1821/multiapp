@@ -1,7 +1,7 @@
 // type panel =
-export type QrType = "url" | "whatsapp";
+export type QrType = "url" | "whatsapp" | "text";
 
-export interface QrUrlPanel {
-  typePanel: string;
-  url: string;
+export interface QrTextPanel {
+  typePanel: QrType;
+  text: string;
 }

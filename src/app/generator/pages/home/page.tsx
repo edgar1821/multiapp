@@ -7,22 +7,26 @@ import Layout from "../../components/Layout";
 import ThemeTab from "./themeTab";
 import QRGenerator from "../../Containers/QRGenerator";
 // panels
-import UrlPanel from "../../Containers/urlPanel";
+import UrlPanel from "../../Containers/UrlPanel";
+import QRTextPanel from "../../Containers/QRText";
 
 function index() {
   return (
     <Layout>
       <>
-        <div className=" flex w-full p-4">
-          <div className="w-1/2">
+        <div className="flex w-full flex-col p-4 md:flex-row">
+          <div className="w-full md:w-1/2">
             <Tabs theme={ThemeTab} style="default">
               <TabItem active title="Url">
                 <UrlPanel />
               </TabItem>
-              <TabItem title="Whatsapp">Edgar</TabItem>
-              <TabItem title="vcard">Gamarra</TabItem>
+              <TabItem title="Texto">
+                <QRTextPanel />
+              </TabItem>
+              <TabItem title="Whatsapp">Gamarra</TabItem>
             </Tabs>
           </div>
+          <div className="w-full md:hidden">add</div>
 
           <QRGenerator />
         </div>
