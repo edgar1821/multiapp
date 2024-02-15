@@ -1,34 +1,26 @@
-"use client";
+import { lazy } from "react";
 import { Metadata } from "next";
-import { Tabs, TabItem } from "flowbite-react";
 
 import Layout from "../../components/Layout";
 
-import ThemeTab from "./themeTab";
-import QRGenerator from "../../Containers/QRGenerator";
-// panels
-import UrlPanel from "../../Containers/UrlPanel";
-import QRTextPanel from "../../Containers/QRText";
+// import MainPanel from "../../Containers/QRPanel";
+// import QRGenerator from "../../Containers/QRGenerator";
+const MainPanel = lazy(() => import("../../Containers/QRPanel"));
+const QRGenerator = lazy(() => import("../../Containers/QRGenerator"));
 
-const meta: Metadata = {
+// panels
+
+export const metadata: Metadata = {
   title: "Generador de qr gratis gratis",
 };
+
 function index() {
   return (
     <Layout>
       <div className="flex w-full flex-col p-4 md:flex-row">
-        <div className="w-full md:w-1/2">
-          <Tabs theme={ThemeTab} style="default">
-            <TabItem active title="Url">
-              <UrlPanel />
-            </TabItem>
-            <TabItem title="Texto">
-              <QRTextPanel />
-            </TabItem>
-            <TabItem title="Whatsapp">Gamarra</TabItem>
-          </Tabs>
-        </div>
-        <div className="w-full md:hidden">add</div>
+        <MainPanel />
+
+        <div className="w-full md:hidden">addss</div>
 
         <QRGenerator />
       </div>

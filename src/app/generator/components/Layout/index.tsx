@@ -1,17 +1,21 @@
 // import { ThemeModeScript } from "flowbite-react";
+import { Metadata } from "next";
 import Header from "../../components/Header";
 
+export const metadata: Metadata = {
+  title: "Generador de qr gratis gratis",
+};
 function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-1 flex-col">
       <Header />
       <main className="w-lvw flex min-h-screen flex-col ">
         <div className=" w-lvw flex justify-center">
-          <div className="x hidden md:flex">add</div>
+          <div className="hidden bg-indigo-500 md:flex">add</div>
           <div
             className="
                 ml-0 
