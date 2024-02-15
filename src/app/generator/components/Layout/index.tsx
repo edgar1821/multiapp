@@ -1,25 +1,19 @@
-import { ReactNode } from "react";
-import { ThemeModeScript } from "flowbite-react";
+// import { ThemeModeScript } from "flowbite-react";
 import Header from "../../components/Header";
 
-interface Props {
-  children: JSX.Element | ReactNode | string;
-}
-
-function index({ children }: Props) {
+function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html>
-      <head>
-        <ThemeModeScript />
-        <title>Generador de qr</title>
-      </head>
-      <body>
-        <main className="w-lvw flex min-h-screen flex-col ">
-          <Header />
-          <div className=" w-lvw flex justify-center">
-            <div className="x hidden md:flex">add</div>
-            <div
-              className="
+    <div className="flex flex-col">
+      <Header />
+      <main className="w-lvw flex min-h-screen flex-col ">
+        <div className=" w-lvw flex justify-center">
+          <div className="x hidden md:flex">add</div>
+          <div
+            className="
                 ml-0 
                 mr-0 
                 flex 
@@ -32,15 +26,14 @@ function index({ children }: Props) {
                 md:ml-10
                 md:mr-10
                 md:w-1/2"
-            >
-              {children}
-            </div>
-            <div className="hidden bg-indigo-500 md:flex">add</div>
+          >
+            {children}
           </div>
-        </main>
-      </body>
-    </html>
+          <div className="hidden bg-indigo-500 md:flex">add</div>
+        </div>
+      </main>
+    </div>
   );
 }
 
-export default index;
+export default RootLayout;

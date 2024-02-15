@@ -29,7 +29,6 @@ function QRGenerator() {
       extension: fileExt,
     });
   };
-  console.log(qrState);
   return (
     <div className="flex w-1/2 items-center p-3 ">
       <div ref={ref} />
