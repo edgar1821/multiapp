@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 import { forwardRef, InputHTMLAttributes, Ref } from "react";
 import { FieldErrors } from "react-hook-form";
-import { QrUrlPanel } from "../../types";
+// import { QrUrlPanel } from "../../types";
 
 export interface InputProps
   extends InputHTMLAttributes<HTMLInputElement> {
@@ -9,7 +9,7 @@ export interface InputProps
   label: string;
   name: string;
   register: any;
-  errors?: FieldErrors<QrUrlPanel> | any;
+  errors?: FieldErrors | any;
 }
 
 const InputText = forwardRef(

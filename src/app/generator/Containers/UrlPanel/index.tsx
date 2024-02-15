@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import QrUrlSchema from "../../Schemas";
-import { QrTextPanel } from "../../types";
+import { QrTextPanel, QrUrl } from "../../types";
 
 import Button from "../../components/Button";
 import useStore from "../../store";
@@ -12,26 +12,28 @@ function UrlPanel() {
   const {
     register,
     handleSubmit,
-    // watch,
     formState: { errors },
-  } = useForm<QrTextPanel>({
+  } = useForm<QrUrl>({
     resolver: zodResolver(QrUrlSchema),
-    defaultValues: { typePanel: "url", text: "" },
   });
   const saveQrPanel = useStore((state) => state.saveQrPanel);
-  function save(data: QrTextPanel) {
-    saveQrPanel(data);
+  function save(data: QrUrl) {
+    const qrparameter: QrTextPanel = {
+      qrtext: data.url,
+      typePanel: "url",
+    };
+    saveQrPanel(qrparameter);
   }
+  console.log("error", errors);
   return (
     <div className="flex w-full flex-col justify-center">
       <form action="" onSubmit={handleSubmit(save)}>
         <InputText
           register={register}
-          label="url"
+          label="Url"
           name="url"
           errors={errors}
         />
-
         <Button type="submit">Generar</Button>
       </form>
     </div>

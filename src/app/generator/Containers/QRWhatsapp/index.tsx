@@ -1,17 +1,13 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import {
-  QRWhatsappPanel,
-  QrTextPanel,
-  SelectOption,
-} from "../../types";
+import { QrWhatsapp, QrTextPanel, Option } from "../../types";
 import { QrWhatsappSchema } from "../../Schemas";
 import Button from "../../components/Button";
 import InputText from "../../components/InputText";
 import useStore from "../../store";
 import Select from "../../components/Select";
-import Countries from "../../../data/countries";
+import Countries from "../../data/countries.json";
 import TextArea from "../../components/TextArea";
 
 function QRWhatsappPanel() {
@@ -19,35 +15,36 @@ function QRWhatsappPanel() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<QRWhatsappPanel>({
+  } = useForm<QrWhatsapp>({
     resolver: zodResolver(QrWhatsappSchema),
-    defaultValues: { typePanel: "text", text: "" },
   });
   const saveQrPanel = useStore((state) => state.saveQrPanel);
 
-  //QrTextPanel
-  function save(data: QRWhatsappPanel) {
-    saveQrPanel(data);
-  }
-  function transform(): SelectOption[] {
-    let result: Array<SelectOption> = Countries.map((country) => {
-      let option: SelectOption = {
-        text: country.name,
-        value: country.code,
+  function transform(data: Array<any>): Array<Option> {
+    let result: Array<Option> = Countries.map((item) => {
+      const optionItem: Option = {
+        text: item.country,
+        value: item.prefix,
+        selected: false,
       };
-      return option;
+      return optionItem;
     });
     return result;
   }
+  //QrTextPanel
+  function save(data: QrWhatsapp) {
+    console.log(data);
+    // saveQrPanel(data);
+  }
+
   return (
     <div className="flex flex-col">
       <form action="" onSubmit={handleSubmit(save)}>
         <Select
           register={register}
-          errors={errors}
-          name="countryPrefix"
+          name="prefix"
           label="Prefijo del pais"
-          options={transform()!}
+          options={transform(Countries)!}
         />
         <InputText
           label="Numero"

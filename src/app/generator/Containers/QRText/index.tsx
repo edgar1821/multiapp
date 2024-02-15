@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { QrTextPanel } from "../../types";
+import { QrText, QrTextPanel } from "../../types";
 import { QrTextSchema } from "../../Schemas";
 import Button from "../../components/Button";
 import InputText from "../../components/InputText";
@@ -11,15 +11,18 @@ function QRText() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<QrTextPanel>({
+  } = useForm<QrText>({
     resolver: zodResolver(QrTextSchema),
-    defaultValues: { typePanel: "text", text: "" },
   });
   const saveQrPanel = useStore((state) => state.saveQrPanel);
 
   //QrTextPanel
-  function save(data: QrTextPanel) {
-    saveQrPanel(data);
+  function save(data: QrText) {
+    const qrparameter: QrTextPanel = {
+      qrtext: data.text,
+      typePanel: "text",
+    };
+    saveQrPanel(qrparameter);
   }
   return (
     <div>
