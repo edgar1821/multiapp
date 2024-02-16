@@ -18,6 +18,13 @@ export const QrWhatsappSchema = z.object({
   }),
   message: z.string(),
 });
+
+export const QrSmsSchema = z.object({
+  phoneNumber: z.string().regex(/^\d+$/, {
+    message: "Solo debes ingresar numeros",
+  }),
+  message: z.string(),
+});
 export default qrUrlSchema;
 
 // z.coerce

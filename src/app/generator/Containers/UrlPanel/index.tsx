@@ -24,7 +24,6 @@ function UrlPanel() {
     };
     saveQrPanel(qrparameter);
   }
-  console.log("error", errors);
   return (
     <div className="flex w-full flex-col justify-center">
       <form action="" onSubmit={handleSubmit(save)}>

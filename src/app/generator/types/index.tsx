@@ -18,7 +18,10 @@ export interface QrWhatsapp {
   phoneNumber: number;
   message: string;
 }
-
+export interface QrSMS {
+  phoneNumber: number;
+  message: string;
+}
 export interface Option {
   text: string;
   value: string;

@@ -14,7 +14,7 @@ export interface InputProps
 
 const InputText = forwardRef(
   (props: InputProps, ref: Ref<HTMLInputElement>) => {
-    const { label, name, register, errors, ...rest } = props;
+    const { label, name, register, errors, onChange, ...rest } = props;
 
     return (
       <div className="mb-2 flex flex-col">
@@ -39,6 +39,7 @@ const InputText = forwardRef(
           text-generator-primary
           focus:border-generator-primary
         focus:ring-generator-primary`}
+          onChange={onChange}
         />
         {errors[name] && (
           <span className="text-red-600">{errors[name].message}</span>

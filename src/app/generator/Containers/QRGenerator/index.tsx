@@ -9,7 +9,6 @@ import Button from "../../components/Button";
 
 function QRGenerator() {
   const qrState = useStore((state) => state.qr);
-  console.log(qrState);
   const [fileExt, setFileExt] = useState<FileExtension>("png");
   const ref = useRef(null);
   useEffect(() => QrCode.append(ref.current!), []);

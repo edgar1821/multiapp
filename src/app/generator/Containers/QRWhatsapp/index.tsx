@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { QrWhatsapp, QrTextPanel, Option } from "../../types";
+import { QrWhatsapp, Option } from "../../types";
 import { QrWhatsappSchema } from "../../Schemas";
 import Button from "../../components/Button";
 import InputText from "../../components/InputText";
@@ -38,7 +38,6 @@ function QRWhatsappPanel() {
   //QrTextPanel
   function save(data: QrWhatsapp) {
     const whatsappLink = `https://wa.me/${data.prefix.replace("+", "") + data.phoneNumber}?text=${encodeURIComponent(data.message)}`;
-    console.log(whatsappLink);
     saveQrPanel({ qrtext: whatsappLink, typePanel: "whatsapp" });
   }
 
