@@ -13,7 +13,15 @@ export const QrTextSchema = z.object({
 
 export const QrWhatsappSchema = z.object({
   prefix: z.string(),
-  number: z.string(),
+  phoneNumber: z.string().regex(/^\d+$/, {
+    message: "Solo debes ingresar numeros",
+  }),
   message: z.string(),
 });
 export default qrUrlSchema;
+
+// z.coerce
+//     .number() // Force it to be a number
+//     .int() // Make sure it's an integer
+//     .gte(10000) // Greater than or equal to the smallest 5 digit int
+//     .lte(99999),

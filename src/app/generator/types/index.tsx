@@ -15,7 +15,7 @@ export interface QrText {
 }
 export interface QrWhatsapp {
   prefix: string;
-  number: number;
+  phoneNumber: number;
   message: string;
 }
 

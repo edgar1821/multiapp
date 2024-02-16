@@ -3,6 +3,7 @@ import { Tabs, TabItem } from "flowbite-react";
 import ThemeTab from "./themeTab";
 import UrlPanel from "../UrlPanel";
 import QRTextPanel from "../QRText";
+import WhatsappPanel from "../QRWhatsapp";
 function MainPanel() {
   return (
     <div className="w-full md:w-1/2">
@@ -13,7 +14,9 @@ function MainPanel() {
         <TabItem title="Texto">
           <QRTextPanel />
         </TabItem>
-        <TabItem title="Whatsapp">Gamarra</TabItem>
+        <TabItem title="Whatsapp">
+          <WhatsappPanel />
+        </TabItem>
       </Tabs>
     </div>
   );

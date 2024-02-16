@@ -51,10 +51,7 @@
         "country": "Dominica",
         "prefix": "+1-767"
     },
-    {
-        "country": "República Dominicana",
-        "prefix": "+1-809, +1-829, +1-849"
-    },
+
     {
         "country": "Ecuador",
         "prefix": "+593"
@@ -231,10 +228,7 @@
         "country": "Italia",
         "prefix": "+39"
     },
-    {
-        "country": "Kazajistán",
-        "prefix": "+7"
-    },
+
     {
         "country": "Kosovo",
         "prefix": "+383"
@@ -352,14 +346,6 @@
         "prefix": "+966"
     },
     {
-        "country": "Armenia",
-        "prefix": "+374"
-    },
-    {
-        "country": "Azerbaiyán",
-        "prefix": "+994"
-    },
-    {
         "country": "Bahréin",
         "prefix": "+973"
     },
@@ -403,14 +389,7 @@
         "country": "Emiratos Árabes Unidos",
         "prefix": "+971"
     },
-    {
-        "country": "Filipinas",
-        "prefix": "+63"
-    },
-    {
-        "country": "Georgia",
-        "prefix": "+995"
-    },
+
     {
         "country": "India",
         "prefix": "+91"
@@ -439,10 +418,7 @@
         "country": "Jordania",
         "prefix": "+962"
     },
-    {
-        "country": "Kazajistán",
-        "prefix": "+7"
-    },
+
     {
         "country": "Kirguistán",
         "prefix": "+996"
@@ -520,10 +496,6 @@
         "prefix": "+993"
     },
     {
-        "country": "Turquía",
-        "prefix": "+90"
-    },
-    {
         "country": "Uzbekistán",
         "prefix": "+998"
     },
@@ -582,10 +554,6 @@
     {
         "country": "Costa de Marfil",
         "prefix": "+225"
-    },
-    {
-        "country": "Djibouti",
-        "prefix": "+253"
     },
     {
         "country": "Egipto",

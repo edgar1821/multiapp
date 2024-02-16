@@ -13,7 +13,7 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 
 const Select = forwardRef(
   (props: SelectProps, ref: Ref<HTMLSelectElement>) => {
-    const { label, name, register, ...rest } = props;
+    const { label, name, register, options = [], ...rest } = props;
     return (
       <div className="mb-2 flex flex-col">
         <select
@@ -41,7 +41,15 @@ const Select = forwardRef(
           {...rest}
           {...register(name)}
         >
-          <option>pais</option>
+          {options.length > 0 &&
+            options.map((item) => (
+              <option
+                key={`${item.value}${item.text}`}
+                value={item.value}
+              >
+                {item.text}
+              </option>
+            ))}
         </select>
       </div>
     );

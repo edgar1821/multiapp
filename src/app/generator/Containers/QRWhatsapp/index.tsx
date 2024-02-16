@@ -17,11 +17,14 @@ function QRWhatsappPanel() {
     formState: { errors },
   } = useForm<QrWhatsapp>({
     resolver: zodResolver(QrWhatsappSchema),
+    defaultValues: {
+      prefix: "+51",
+    },
   });
   const saveQrPanel = useStore((state) => state.saveQrPanel);
 
   function transform(data: Array<any>): Array<Option> {
-    let result: Array<Option> = Countries.map((item) => {
+    let result: Array<Option> = data.map((item) => {
       const optionItem: Option = {
         text: item.country,
         value: item.prefix,
@@ -29,12 +32,14 @@ function QRWhatsappPanel() {
       };
       return optionItem;
     });
+
     return result;
   }
   //QrTextPanel
   function save(data: QrWhatsapp) {
-    console.log(data);
-    // saveQrPanel(data);
+    const whatsappLink = `https://wa.me/${data.prefix.replace("+", "") + data.phoneNumber}?text=${encodeURIComponent(data.message)}`;
+    console.log(whatsappLink);
+    saveQrPanel({ qrtext: whatsappLink, typePanel: "whatsapp" });
   }
 
   return (
@@ -54,8 +59,8 @@ function QRWhatsappPanel() {
         />
         <TextArea
           label="Mensaje"
-          name="textMessage"
-          rows={5}
+          name="message"
+          rows={10}
           register={register}
           errors={errors}
         />
