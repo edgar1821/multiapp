@@ -25,6 +25,11 @@ export const QrSmsSchema = z.object({
   }),
   message: z.string(),
 });
+
+export const QrGeolocSchema = z.object({
+  lat: z.string(),
+  long: z.string(),
+});
 export default qrUrlSchema;
 
 // z.coerce

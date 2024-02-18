@@ -19,8 +19,13 @@ export interface QrWhatsapp {
   message: string;
 }
 export interface QrSMS {
-  phoneNumber: number;
+  phoneNumber: string;
   message: string;
+}
+
+export interface QrGeoloc {
+  lat: string;
+  long: string;
 }
 export interface Option {
   text: string;

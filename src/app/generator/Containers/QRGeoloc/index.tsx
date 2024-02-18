@@ -1,42 +1,47 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { QrSMS } from "../../types";
-import { QrSmsSchema } from "../../Schemas";
+import { QrGeoloc } from "../../types";
+import { QrGeolocSchema } from "../../Schemas";
 import Button from "../../components/Button";
 import InputText from "../../components/InputText";
 import useStore from "../../store";
-import TextArea from "../../components/TextArea";
 
-function SmsPanel() {
+function GeolocPanel() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<QrSMS>({
-    resolver: zodResolver(QrSmsSchema),
+  } = useForm<QrGeoloc>({
+    resolver: zodResolver(QrGeolocSchema),
+    defaultValues: {
+      lat: "12.11163",
+      long: "76.94061",
+    },
   });
+  //-12.089084151935634, -76.97323208846565
+  //12.11163° S, 76.94061° W
   const saveQrPanel = useStore((state) => state.saveQrPanel);
 
   //QrTextPanel
-  function save(data: QrSMS) {
-    const smsLink = `SMSTO:${data.phoneNumber}:${data.message}`;
-    saveQrPanel({ qrtext: smsLink, typePanel: "whatsapp" });
+  function save(data: QrGeoloc) {
+    const locationUrl = `geo:${data.lat},${data.long}`;
+
+    saveQrPanel({ qrtext: locationUrl, typePanel: "whatsapp" });
   }
 
   return (
     <div className="flex flex-col">
       <form action="" onSubmit={handleSubmit(save)}>
         <InputText
-          label="Numero"
-          name="phoneNumber"
+          label="Latitud"
+          name="lat"
           register={register}
           errors={errors}
         />
-        <TextArea
-          label="Mensaje"
-          name="message"
-          rows={10}
+        <InputText
+          label="Longitud"
+          name="long"
           register={register}
           errors={errors}
         />
@@ -46,4 +51,4 @@ function SmsPanel() {
   );
 }
 
-export default SmsPanel;
+export default GeolocPanel;
