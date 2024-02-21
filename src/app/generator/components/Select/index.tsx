@@ -1,21 +1,26 @@
 /* eslint-disable react/display-name */
 import { forwardRef, SelectHTMLAttributes, Ref } from "react";
-import { FieldErrors } from "react-hook-form";
 import { Option } from "../../types";
 
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
-  label: string;
   name: string;
   register: any;
+  label: string;
   // errors?: FieldErrors | any;
   options: Array<Option>;
 }
 
 const Select = forwardRef(
   (props: SelectProps, ref: Ref<HTMLSelectElement>) => {
-    const { label, name, register, options = [], ...rest } = props;
+    const { name, label, register, options = [], ...rest } = props;
     return (
       <div className="mb-2 flex flex-col">
+        <label
+          htmlFor={name}
+          className="font-primary  text-xs font-medium text-generator-primary"
+        >
+          {label}
+        </label>
         <select
           className={`
           block 

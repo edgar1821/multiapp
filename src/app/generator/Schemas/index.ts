@@ -26,9 +26,22 @@ export const QrSmsSchema = z.object({
   message: z.string(),
 });
 
+const regexGeoloc = /^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,15}/g;
+
 export const QrGeolocSchema = z.object({
-  lat: z.string(),
-  long: z.string(),
+  lat: z.string().regex(regexGeoloc, {
+    message: "la latitud no es valida",
+  }),
+  long: z.string().regex(regexGeoloc, {
+    message: "la longitud no es valida",
+  }),
+});
+
+export const QrWifiSchema = z.object({
+  ssid: z.string(),
+  password: z.string(),
+  securityType: z.string(),
+  hidden: z.boolean(),
 });
 export default qrUrlSchema;
 

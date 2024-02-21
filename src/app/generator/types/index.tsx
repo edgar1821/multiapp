@@ -27,8 +27,15 @@ export interface QrGeoloc {
   lat: string;
   long: string;
 }
+export interface QrWifi {
+  ssid: string;
+  password?: string;
+
+  securityType: string;
+  hidden: boolean;
+}
 export interface Option {
   text: string;
   value: string;
-  selected: boolean;
+  selected?: boolean;
 }

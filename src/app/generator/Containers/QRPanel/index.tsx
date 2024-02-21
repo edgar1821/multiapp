@@ -6,6 +6,7 @@ import QRTextPanel from "../QRText";
 import WhatsappPanel from "../QRWhatsapp";
 import SMSPanel from "../QRTextMessage";
 import GeoLocPanel from "../QRGeoloc";
+import WifiPanel from "..//QRWifi";
 function MainPanel() {
   return (
     <div className="w-full md:w-1/2">
@@ -22,8 +23,11 @@ function MainPanel() {
         <TabItem title="Sms">
           <SMSPanel />
         </TabItem>
-        <TabItem title="Geoloc" active>
+        <TabItem title="Geoloc">
           <GeoLocPanel />
+        </TabItem>
+        <TabItem title="Wifi" active>
+          <WifiPanel />
         </TabItem>
       </Tabs>
     </div>

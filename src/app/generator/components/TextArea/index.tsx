@@ -18,11 +18,15 @@ const TextArea = forwardRef(
 
     return (
       <div className="mb-2 flex h-auto flex-col">
-        <label className="font-primary text-xs text-generator-primary">
+        <label
+          htmlFor={name}
+          className="font-primary text-xs text-generator-primary"
+        >
           {label}
         </label>
         <textarea
           {...rest}
+          id={name}
           ref={ref}
           {...register(name)}
           className={`
