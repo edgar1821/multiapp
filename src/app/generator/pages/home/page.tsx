@@ -1,10 +1,6 @@
 import { lazy } from "react";
 import { Metadata } from "next";
-
 import Layout from "../../components/Layout";
-
-// import MainPanel from "../../Containers/QRPanel";
-// import QRGenerator from "../../Containers/QRGenerator";
 const MainPanel = lazy(() => import("../../Containers/QRPanel"));
 const QRGenerator = lazy(() => import("../../Containers/QRGenerator"));
 

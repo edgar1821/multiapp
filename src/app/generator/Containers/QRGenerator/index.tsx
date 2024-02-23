@@ -5,7 +5,6 @@ import { FileExtension } from "qr-code-styling";
 import QrCode from "./qrStyle";
 import useStore from "../../store";
 import Button from "../../components/Button";
-//https://www.npmjs.com/package/qr-code-styling
 
 function QRGenerator() {
   const qrState = useStore((state) => state.qr);
@@ -68,9 +67,5 @@ function QRGenerator() {
     </div>
   );
 }
-//focus:border-cyan-500 focus:ring-cyan-500
 
 export default QRGenerator;
-
-// <a href="wifi://password@ssid"> click to connect wifi </a>
-//<a href="WIFI:S:ssid;T:WPA;P:password;H:false;"> click to connect wifi </a>

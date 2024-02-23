@@ -8,7 +8,7 @@ interface QRStateInterface {
 }
 
 let defaultValue: QrTextPanel = {
-  qrtext: "http://localhost:3000/generator/pages/home",
+  qrtext: "Bienvenido a code bear, generador de codigo gratis",
   typePanel: "url",
 };
 export const useStore = create<QRStateInterface>()((set) => ({

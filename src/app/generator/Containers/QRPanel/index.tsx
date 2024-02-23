@@ -1,5 +1,8 @@
 "use client";
 import { Tabs, TabItem } from "flowbite-react";
+import { CiLink, CiMap } from "react-icons/ci";
+import { FaWifi, FaWhatsapp, FaSms } from "react-icons/fa";
+import { IoDocumentText } from "react-icons/io5";
 import ThemeTab from "./themeTab";
 import UrlPanel from "../UrlPanel";
 import QRTextPanel from "../QRText";
@@ -11,22 +14,22 @@ function MainPanel() {
   return (
     <div className="w-full md:w-1/2">
       <Tabs theme={ThemeTab} style="default">
-        <TabItem title="Url">
+        <TabItem title="Url" active icon={CiLink}>
           <UrlPanel />
         </TabItem>
-        <TabItem title="Texto">
+        <TabItem title="Texto" icon={IoDocumentText}>
           <QRTextPanel />
         </TabItem>
-        <TabItem title="Whatsapp">
+        <TabItem title="Whatsapp" icon={FaWhatsapp}>
           <WhatsappPanel />
         </TabItem>
-        <TabItem title="Sms">
+        <TabItem title="Sms" icon={FaSms}>
           <SMSPanel />
         </TabItem>
-        <TabItem title="Geoloc">
+        <TabItem title="Geoloc" icon={CiMap}>
           <GeoLocPanel />
         </TabItem>
-        <TabItem title="Wifi" active>
+        <TabItem title="Wifi" icon={FaWifi}>
           <WifiPanel />
         </TabItem>
       </Tabs>

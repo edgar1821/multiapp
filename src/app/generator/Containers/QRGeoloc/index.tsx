@@ -14,16 +14,10 @@ function GeolocPanel() {
     formState: { errors },
   } = useForm<QrGeoloc>({
     resolver: zodResolver(QrGeolocSchema),
-    defaultValues: {
-      lat: "12.11163",
-      long: "76.94061",
-    },
   });
-  //-12.089084151935634, -76.97323208846565
-  //12.11163° S, 76.94061° W
+
   const saveQrPanel = useStore((state) => state.saveQrPanel);
 
-  //QrTextPanel
   function save(data: QrGeoloc) {
     const locationUrl = `geo:${data.lat},${data.long}`;
 
